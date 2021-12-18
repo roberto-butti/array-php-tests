@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hi-folks/array": "dev-main"
+    }
+}

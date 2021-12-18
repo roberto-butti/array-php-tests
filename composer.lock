@@ -1,0 +1,79 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fc7ce4a880239fe9a329cfc86e469618",
+    "packages": [
+        {
+            "name": "hi-folks/array",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Hi-Folks/array.git",
+                "reference": "4dc41f5bd166123673b57bef1276e49315de1d29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Hi-Folks/array/zipball/4dc41f5bd166123673b57bef1276e49315de1d29",
+                "reference": "4dc41f5bd166123673b57bef1276e49315de1d29",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "pestphp/pest": "^1.20",
+                "spatie/ray": "^1.28"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HiFolks\\DataType\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roberto B.",
+                    "email": "roberto.butti@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Arr class for managing arrays, built on top of the PHP array functions.",
+            "homepage": "https://github.com/hi-folks/array",
+            "keywords": [
+                "array",
+                "hi-folks"
+            ],
+            "support": {
+                "issues": "https://github.com/Hi-Folks/array/issues",
+                "source": "https://github.com/Hi-Folks/array/tree/v0.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Hi-Folks",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-12-14T06:32:59+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "hi-folks/array": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

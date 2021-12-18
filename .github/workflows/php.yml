@@ -1,0 +1,40 @@
+# GithHub Actions Workflow generated with Ghygen
+# Original configuration: https://ghygen.hi-folks.dev?code=663ce115f525a6f7662c1617eb483f75
+name: Execute Script
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - features/**
+
+jobs:
+  laravel-tests:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, macos-latest, windows-latest]
+        php-versions: [ '8.1','8.0','7.4','7.3' ]
+        dependency-stability: [ 'prefer-none' ]
+
+    name: OS ${{ matrix.operating-system}} - PHP ${{ matrix.php-versions }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install PHP versions
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: PHP Version
+      run: php --version
+
+    - name: Execute Script
+# Set environment
+      env:
+        SESSION_DRIVER: array
+
+      run: php src/arrayfill_vs_for.php
