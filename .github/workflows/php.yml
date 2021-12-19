@@ -33,9 +33,7 @@ jobs:
     - name: PHP Version
       run: php --version
 
-    - name: Execute Script
-# Set environment
-      env:
-        SESSION_DRIVER: array
-
+    - name: Execute Script (for native array)
       run: php src/arrayfill_vs_for.php
+    - name: Execute Script (with Arr class)
+      run: php src/test.php

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hi-Folks/array.git",
-                "reference": "4dc41f5bd166123673b57bef1276e49315de1d29"
+                "reference": "6546c4c7a02f1811a9ad758eb606c332a25a62d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hi-Folks/array/zipball/4dc41f5bd166123673b57bef1276e49315de1d29",
-                "reference": "4dc41f5bd166123673b57bef1276e49315de1d29",
+                "url": "https://api.github.com/repos/Hi-Folks/array/zipball/6546c4c7a02f1811a9ad758eb606c332a25a62d5",
+                "reference": "6546c4c7a02f1811a9ad758eb606c332a25a62d5",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Hi-Folks/array/issues",
-                "source": "https://github.com/Hi-Folks/array/tree/v0.0.2"
+                "source": "https://github.com/Hi-Folks/array/tree/v0.0.3"
             },
             "funding": [
                 {
@@ -62,7 +62,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-14T06:32:59+00:00"
+            "time": "2021-12-19T14:57:04+00:00"
         }
     ],
     "packages-dev": [],

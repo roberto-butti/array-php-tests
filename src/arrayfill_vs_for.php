@@ -6,9 +6,6 @@ function report(string $label, int $exec_time, int $mem_usage): void
     echo str_pad(strval($exec_time / 1000000), 16, " ", STR_PAD_LEFT) . " : ";
     echo str_pad(strval(intval($mem_usage / 1024)), 8, " ", STR_PAD_LEFT) . " kb";
     echo PHP_EOL;
-
-    //echo $mem_pre . " - " . $mem_post . " - " . ($mem_post - $mem_pre)/(1024) . " KB - " . PHP_EOL;
-    //echo "array_fill()      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
 }
 $count = 1000000;
 $initValue = 1;
