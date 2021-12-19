@@ -4,6 +4,8 @@ $count = 1000000;
 $initValue = 1;
 echo "Creating array with ${count} elements" . PHP_EOL;
 echo "PHP: " . phpversion() . " - " . php_uname("s") . PHP_EOL;
+$xdebug = phpversion("xdebug") ?: "NOT LOADED";
+echo "Xdebug:" . $xdebug . PHP_EOL;
 echo "------------------+------------------" . PHP_EOL;
 echo "METHOD            : TIME millisecond" . PHP_EOL;
 echo "------------------+------------------" . PHP_EOL;
@@ -40,3 +42,12 @@ for ($i = 0; $i < $count; $i++) {
 $time_post = hrtime(true);
 $exec_time = $time_post - $time_pre;
 echo "for, with []      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+
+$time_pre = hrtime(true);
+$a = new SplFixedArray($count);
+for ($i = 0; $i < $count; $i++) {
+    $a[$i] = $initValue;
+}
+$time_post = hrtime(true);
+$exec_time = $time_post - $time_pre;
+echo "SplFixedArray     : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;

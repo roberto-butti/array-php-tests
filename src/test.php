@@ -13,14 +13,14 @@ $arr = Arr::fromFunction(fn()=>1, $count);
 $time_post = hrtime(true);
 echo $arr->reduce(fn($result, $element) => $result + $element) . PHP_EOL;
 $exec_time = $time_post - $time_pre;
-echo "fromFuction      : " . str_pad($exec_time, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+echo "fromFuction      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
 $time_pre = hrtime(true);
 $arr = Arr::fromValue(1, $count);
 $time_post = hrtime(true);
 echo $arr->reduce(fn($result, $element) => $result + $element) . PHP_EOL;
 $exec_time = $time_post - $time_pre;
 
-echo "fromValue        : " . str_pad($exec_time, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+echo "fromValue        : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
 
 $time_pre = hrtime(true);
 $a = [];
@@ -31,7 +31,7 @@ $arr = Arr::make($a);
 $time_post = hrtime(true);
 echo $arr->reduce(fn($result, $element) => $result + $element) . PHP_EOL;
 $exec_time = $time_post - $time_pre;
-echo "with for         : " . str_pad($exec_time, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+echo "with for         : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
 
 
 //echo $arr->toString();
