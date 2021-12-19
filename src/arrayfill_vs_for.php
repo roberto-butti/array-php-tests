@@ -1,53 +1,85 @@
 <?php
 
+function report(string $label, int $exec_time, int $mem_usage): void
+{
+    echo str_pad($label, 18) . ": ";
+    echo str_pad(strval($exec_time / 1000000), 16, " ", STR_PAD_LEFT) . " : ";
+    echo str_pad(strval(intval($mem_usage / 1024)), 8, " ", STR_PAD_LEFT) . " kb";
+    echo PHP_EOL;
+
+    //echo $mem_pre . " - " . $mem_post . " - " . ($mem_post - $mem_pre)/(1024) . " KB - " . PHP_EOL;
+    //echo "array_fill()      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+}
 $count = 1000000;
 $initValue = 1;
 echo "Creating array with ${count} elements" . PHP_EOL;
 echo "PHP: " . phpversion() . " - " . php_uname("s") . PHP_EOL;
 $xdebug = phpversion("xdebug") ?: "NOT LOADED";
-echo "Xdebug:" . $xdebug . PHP_EOL;
-echo "------------------+------------------" . PHP_EOL;
-echo "METHOD            : TIME millisecond" . PHP_EOL;
-echo "------------------+------------------" . PHP_EOL;
+echo "Xdebug : " . $xdebug . PHP_EOL;
+echo "------------------+------------------+------------------" . PHP_EOL;
+echo "METHOD            | TIME ms.         | Memory usage KB  " . PHP_EOL;
+echo "------------------+------------------+------------------" . PHP_EOL;
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 $a = array_fill(0, $count, $initValue);
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "array_fill()      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("array_fill()", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
 
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 $a = array_pad([], $count, $initValue);
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "array_pad()       : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("array_pad()", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
 
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 $a = array_map(fn() => $initValue, range(0, $count - 1));
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "array_map()       : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("array_map()", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
 
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 for ($i = 0; $i < $count; $i++) {
     $a[$i] = $initValue;
 }
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "for, with [i]     : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("for, with [i]", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
 
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 for ($i = 0; $i < $count; $i++) {
     $a[] = $initValue;
 }
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "for, with []      : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("for, with []", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
 
 $time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
 $a = new SplFixedArray($count);
 for ($i = 0; $i < $count; $i++) {
     $a[$i] = $initValue;
 }
 $time_post = hrtime(true);
+$mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-echo "SplFixedArray     : " . str_pad($exec_time / 1000000, 10, " ", STR_PAD_LEFT) . PHP_EOL;
+report("SplFixedArray", $exec_time, $mem_post - $mem_pre);
