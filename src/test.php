@@ -68,3 +68,16 @@ report("ArrayAccess", $exec_time, $mem_post - $mem_pre);
 
 unset($a);
 unset($arr);
+
+$time_pre = hrtime(true);
+$mem_pre = memory_get_usage();
+
+$arr = Arr::make();
+$arr->fill($initValue, 0, $count);
+$time_post = hrtime(true);
+$mem_post = memory_get_usage();
+$exec_time = $time_post - $time_pre;
+report("Arr fill", $exec_time, $mem_post - $mem_pre);
+
+unset($a);
+unset($arr);
