@@ -3,8 +3,7 @@
 function report(string $label, int $exec_time, int $mem_usage): void
 {
     echo str_pad($label, 18) . ": ";
-    $millisecond = $exec_time / 1000000;
-    echo str_pad(strval(number_format($millisecond, 6)), 16, " ", STR_PAD_LEFT) . " : ";
+    echo str_pad(strval($exec_time / 1000000), 16, " ", STR_PAD_LEFT) . " : ";
     echo str_pad(strval(intval($mem_usage / 1024)), 8, " ", STR_PAD_LEFT) . " kb";
     echo PHP_EOL;
 }
@@ -74,43 +73,23 @@ unset($a);
 $time_pre = hrtime(true);
 $mem_pre = memory_get_usage();
 $a = new SplFixedArray($count);
-for ($i = 0; $i < $count; $i++) {
-    $a[$i] = $initValue;
-}
+
 $time_post = hrtime(true);
 $mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-report("Fix arr with init", $exec_time, $mem_post - $mem_pre);
-
-unset($a);
-
-$time_pre = hrtime(true);
-$mem_pre = memory_get_usage();
-$a = new SplFixedArray($count);
-$time_post = hrtime(true);
-$mem_post = memory_get_usage();
-$exec_time = $time_post - $time_pre;
-report("Fix arr NO init", $exec_time, $mem_post - $mem_pre);
+report("SplFixedArray", $exec_time, $mem_post - $mem_pre);
 
 unset($a);
 
 $time_pre = hrtime(true);
 $mem_pre = memory_get_usage();
 $a = range(0, $count - 1);
+/*
 for ($i = 0; $i < $count; $i++) {
     $a[$i] = $initValue;
 }
+ */
 $time_post = hrtime(true);
 $mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
-report("range() with init", $exec_time, $mem_post - $mem_pre);
-
-unset($a);
-
-$time_pre = hrtime(true);
-$mem_pre = memory_get_usage();
-$a = range(0, $count - 1);
-$time_post = hrtime(true);
-$mem_post = memory_get_usage();
-$exec_time = $time_post - $time_pre;
-report("range() NO init", $exec_time, $mem_post - $mem_pre);
+report("range()", $exec_time, $mem_post - $mem_pre);
