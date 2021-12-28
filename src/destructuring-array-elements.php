@@ -3,7 +3,7 @@
 // Destructuring array elements
 $fruits = [ '🍎', '🍊', '🍌', '🍋'];
 echo "Destructuring by position : ";
-list(,$orange,,$lemon) = $fruits;
+list(, $orange, , $lemon) = $fruits;
 echo $lemon . " and " . $orange . PHP_EOL;
 
 echo "Destructuring by index : ";

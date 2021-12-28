@@ -1,5 +1,5 @@
 {
     "require": {
-        "hi-folks/array": "dev-main"
+        "hi-folks/array": "^0.0.4"
     }
 }

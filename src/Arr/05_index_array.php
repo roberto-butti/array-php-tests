@@ -26,3 +26,10 @@ echo "Remaining fruits:" . $fruits->join(",") . PHP_EOL;
 // Copy
 $some = $removedFruits->slice(0, $removedFruits->length());
 echo "Some Fruits: " . $some->join(",") . PHP_EOL;
+
+
+// ReCreate some fruits
+$fruits = Arr::make(['🥝','🍓','🍋','🥭','🍎','🍌']);
+echo "All fruits: " . $fruits->join() . PHP_EOL;
+echo "Fruit at position 3 (0 index array): " . $fruits->at(3) . PHP_EOL;
+echo "Fruit at position -2: " . $fruits->at(-2) . PHP_EOL;

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc7ce4a880239fe9a329cfc86e469618",
+    "content-hash": "cc07b94a8f7d293a6b9e3443e8246530",
     "packages": [
         {
             "name": "hi-folks/array",
-            "version": "dev-main",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hi-Folks/array.git",
-                "reference": "6546c4c7a02f1811a9ad758eb606c332a25a62d5"
+                "reference": "ab2282b4ce15f77575224cd9e63359f03a1ae3eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hi-Folks/array/zipball/6546c4c7a02f1811a9ad758eb606c332a25a62d5",
-                "reference": "6546c4c7a02f1811a9ad758eb606c332a25a62d5",
+                "url": "https://api.github.com/repos/Hi-Folks/array/zipball/ab2282b4ce15f77575224cd9e63359f03a1ae3eb",
+                "reference": "ab2282b4ce15f77575224cd9e63359f03a1ae3eb",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,6 @@
                 "pestphp/pest": "^1.20",
                 "spatie/ray": "^1.28"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -54,7 +53,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Hi-Folks/array/issues",
-                "source": "https://github.com/Hi-Folks/array/tree/v0.0.3"
+                "source": "https://github.com/Hi-Folks/array/tree/v0.0.4"
             },
             "funding": [
                 {
@@ -62,15 +61,13 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-19T14:57:04+00:00"
+            "time": "2021-12-28T10:48:59+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "hi-folks/array": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

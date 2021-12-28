@@ -38,7 +38,7 @@ unset($a);
 
 $time_pre = hrtime(true);
 $mem_pre = memory_get_usage();
-$a = array_map(fn() => $initValue, range(0, $count - 1));
+$a = array_map(fn () => $initValue, range(0, $count - 1));
 $time_post = hrtime(true);
 $mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;

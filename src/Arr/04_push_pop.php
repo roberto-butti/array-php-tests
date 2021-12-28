@@ -2,6 +2,7 @@
 
 require("./vendor/autoload.php");
 
+
 use HiFolks\DataType\Arr;
 
 // Create some fruits
@@ -14,6 +15,8 @@ $fruits->forEach(function ($element, $key) {
     echo $key . " " . $element . "; ";
 });
 echo PHP_EOL . "--~--" . PHP_EOL;
+echo $fruits->join(",");
+// 🥝,🍓,🍋,🥭,🍎,🍌,🍑
 
 $last = $fruits->pop();
 $secondLast = $fruits->pop();
@@ -23,6 +26,8 @@ $fruits->forEach(function ($element, $key) {
 });
 echo PHP_EOL . "Last fruit: " . $last . PHP_EOL; // peach
 echo "Second last fruit: " . $secondLast . PHP_EOL; // banana
+// Last fruit: 🍑
+// Second last fruit: 🍌
 echo PHP_EOL . "--~--" . PHP_EOL;
 
 // Remove an item from the beginning of an Array

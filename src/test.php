@@ -21,7 +21,7 @@ echo "METHOD            | TIME ms.         | Memory usage KB  " . PHP_EOL;
 echo "------------------+------------------+------------------" . PHP_EOL;
 $time_pre = hrtime(true);
 $mem_pre = memory_get_usage();
-$arr = Arr::fromFunction(fn()=>1, $count);
+$arr = Arr::fromFunction(fn () =>1, $count);
 $time_post = hrtime(true);
 $mem_post = memory_get_usage();
 $exec_time = $time_post - $time_pre;
